@@ -3,8 +3,8 @@
 # place the first number in x10
 # place the second number in x11
 # the result will be stored in x8 
-addi x10 zero 17
-addi x11 zero -3# down counter
+addi x10, zero, 17
+addi x11, zero, -3# down counter
 addi x9, x11, 0 # up counter
 addi x8, zero, 0
  

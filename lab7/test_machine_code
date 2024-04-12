@@ -1,0 +1,50 @@
+
+test.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <loop-0x8>:
+   0:	4545                	li	a0,17
+   2:	55f5                	li	a1,-3
+   4:	84ae                	mv	s1,a1
+   6:	4401                	li	s0,0
+
+00000008 <loop>:
+   8:	c499                	beqz	s1,16 <mul_was_neg>
+   a:	c999                	beqz	a1,20 <mul_was_pos>
+   c:	942a                	add	s0,s0,a0
+   e:	0485                	add	s1,s1,1
+  10:	15fd                	add	a1,a1,-1
+  12:	fe000be3          	beqz	zero,8 <loop>
+
+00000016 <mul_was_neg>:
+  16:	54fd                	li	s1,-1
+  18:	8c25                	xor	s0,s0,s1
+  1a:	0405                	add	s0,s0,1
+  1c:	00000463          	beqz	zero,24 <done>
+
+00000020 <mul_was_pos>:
+  20:	00000263          	beqz	zero,24 <done>
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	3141                	jal	fffffc80 <done+0xfffffc5c>
+   2:	0000                	unimp
+   4:	7200                	.insn	2, 0x7200
+   6:	7369                	lui	t1,0xffffa
+   8:	01007663          	bgeu	zero,a6,14 <.riscv.attributes+0x14>
+   c:	00000027          	.insn	4, 0x0027
+  10:	7205                	lui	tp,0xfffe1
+  12:	3376                	.insn	2, 0x3376
+  14:	6932                	.insn	2, 0x6932
+  16:	7032                	.insn	2, 0x7032
+  18:	5f31                	li	t5,-20
+  1a:	326d                	jal	fffff9c4 <done+0xfffff9a0>
+  1c:	3070                	.insn	2, 0x3070
+  1e:	615f 7032 5f31      	.insn	6, 0x5f317032615f
+  24:	30703263          	.insn	4, 0x30703263
+  28:	7a5f 6d6d 6c75      	.insn	6, 0x6c756d6d7a5f
+  2e:	7031                	c.lui	zero,0xfffec
+  30:	0030                	add	a2,sp,8
