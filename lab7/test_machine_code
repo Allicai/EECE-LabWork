@@ -6,8 +6,8 @@ Disassembly of section .text:
 
 00000000 <loop-0x8>:
    0:	0545                	add	a0,a0,17
-   2:	15f9                	add	a1,a1,-2
-   4:	14f9                	add	s1,s1,-2
+   2:	0589                	add	a1,a1,2
+   4:	0489                	add	s1,s1,2
    6:	8422                	mv	s0,s0
 
 00000008 <loop>:
