@@ -5,10 +5,10 @@ test.o:     file format elf32-littleriscv
 Disassembly of section .text:
 
 00000000 <loop-0x8>:
-   0:	4545                	li	a0,17
-   2:	55f5                	li	a1,-3
-   4:	84ae                	mv	s1,a1
-   6:	4401                	li	s0,0
+   0:	0545                	add	a0,a0,17
+   2:	15f5                	add	a1,a1,-3
+   4:	14f5                	add	s1,s1,-3
+   6:	8422                	mv	s0,s0
 
 00000008 <loop>:
    8:	c499                	beqz	s1,16 <mul_was_neg>
@@ -19,7 +19,7 @@ Disassembly of section .text:
   12:	fe000be3          	beqz	zero,8 <loop>
 
 00000016 <mul_was_neg>:
-  16:	54fd                	li	s1,-1
+  16:	14fd                	add	s1,s1,-1
   18:	8c25                	xor	s0,s0,s1
   1a:	0405                	add	s0,s0,1
   1c:	00000463          	beqz	zero,24 <done>
