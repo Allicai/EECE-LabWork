@@ -3,10 +3,10 @@
 # place the first number in x10
 # place the second number in x11
 # the result will be stored in x8 
-addi x10, zero, 17
-addi x11, zero, -3# down counter
-addi x9, x11, 0 # up counter
-addi x8, zero, 0
+addi x10, x10, 17
+addi x11, x11, -3# down counter
+addi x9, x9, -3# up counter
+addi x8, x8, 0
  
 loop:
 # check if upcounter is zero
@@ -27,7 +27,7 @@ addi x11, x11, -1
 beqz zero, loop
 
 mul_was_neg: # we dont need the counter anymore
-addi x9, zero, -1
+addi x9, x9, -1
 xor x8, x8, x9
 addi x8, x8, 1
 beqz zero, done
