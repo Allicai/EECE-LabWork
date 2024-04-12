@@ -6,31 +6,28 @@ Disassembly of section .text:
 
 00000000 <loop-0x8>:
    0:	0545                	add	a0,a0,17
-   2:	15f5                	add	a1,a1,-3
-   4:	14f5                	add	s1,s1,-3
+   2:	15f9                	add	a1,a1,-2
+   4:	14f9                	add	s1,s1,-2
    6:	8422                	mv	s0,s0
 
 00000008 <loop>:
-   8:	c499                	beqz	s1,16 <mul_was_neg>
-   a:	c999                	beqz	a1,20 <mul_was_pos>
+   8:	c491                	beqz	s1,14 <mul_was_neg>
+   a:	c989                	beqz	a1,1c <done>
    c:	942a                	add	s0,s0,a0
    e:	0485                	add	s1,s1,1
   10:	15fd                	add	a1,a1,-1
-  12:	fe000be3          	beqz	zero,8 <loop>
+  12:	f97d                	bnez	a0,8 <loop>
 
-00000016 <mul_was_neg>:
-  16:	14fd                	add	s1,s1,-1
-  18:	8c25                	xor	s0,s0,s1
-  1a:	0405                	add	s0,s0,1
-  1c:	00000463          	beqz	zero,24 <done>
-
-00000020 <mul_was_pos>:
-  20:	00000263          	beqz	zero,24 <done>
+00000014 <mul_was_neg>:
+  14:	14fd                	add	s1,s1,-1
+  16:	8c25                	xor	s0,s0,s1
+  18:	0405                	add	s0,s0,1
+  1a:	c089                	beqz	s1,1c <done>
 
 Disassembly of section .riscv.attributes:
 
 00000000 <.riscv.attributes>:
-   0:	3141                	jal	fffffc80 <done+0xfffffc5c>
+   0:	3141                	jal	fffffc80 <done+0xfffffc64>
    2:	0000                	unimp
    4:	7200                	.insn	2, 0x7200
    6:	7369                	lui	t1,0xffffa
@@ -41,7 +38,7 @@ Disassembly of section .riscv.attributes:
   14:	6932                	.insn	2, 0x6932
   16:	7032                	.insn	2, 0x7032
   18:	5f31                	li	t5,-20
-  1a:	326d                	jal	fffff9c4 <done+0xfffff9a0>
+  1a:	326d                	jal	fffff9c4 <done+0xfffff9a8>
   1c:	3070                	.insn	2, 0x3070
   1e:	615f 7032 5f31      	.insn	6, 0x5f317032615f
   24:	30703263          	.insn	4, 0x30703263
