@@ -4,8 +4,8 @@
 # place the second number in x11
 # the result will be stored in x8 
 addi x10, x10, 17
-addi x11, x11, -2# down counter
-addi x9, x9, -2# up counter
+addi x11, x11, 2# down counter
+addi x9, x9, 2# up counter
 addi x8, x8, 0
  
 loop:
